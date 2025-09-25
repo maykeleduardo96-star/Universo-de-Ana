@@ -1,0 +1,97 @@
+.galaxies-view, .galaxy-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#galaxiesCanvas, #galaxyCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.galaxy-names {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.galaxy-label {
+    position: absolute;
+    color: #aabbcc;
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    pointer-events: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    z-index: 20;
+}
+
+.galaxy-label:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    color: #ff4d88;
+}
+
+.galaxy-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+}
+
+.back-button {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ff4d88;
+    color: #ff4d88;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.back-button:hover {
+    background: rgba(255, 77, 136, 0.2);
+    transform: scale(1.05);
+}
+
+.galaxy-title {
+    font-size: 32px;
+    color: #ff4d88;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 0 0 15px #ff4d88;
+}
+
+.galaxy-content {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 80px);
+    z-index: 50;
+    pointer-events: none;
+}
+
+@media (max-width: 700px) {
+    .galaxy-label { font-size: 14px; }
+    .galaxy-title { font-size: 24px; }
+    .back-button { padding: 8px 12px; font-size: 14px; }
+}

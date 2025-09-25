@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Usa una textura de galaxia real (puedes reemplazar con una URL de GIF o imagen de alta resolución, e.g., de NASA)
         // Para GIF animado, necesitarías un approach diferente, como un sprite animado, pero por simplicidad usamos imagen estática hiperreal.
         // Ejemplo: 'https://www.nasa.gov/sites/default/files/thumbnails/image/main_image_galaxies_stephans_quintet_sq_nircam_miri_webbpotm2207a16k.png'
-        const galaxyTexture = loader.load('https://stsci-opo.org/STScI-01J2YB4HGT6J7B5XPB1WMRR2ZF.png'); // Textura de Andrómeda real (puedes cambiarla)
+        const galaxyTexture = loader.load('https://upload.wikimedia.org/wikipedia/commons/9/98/Andromeda_Galaxy_%28with_h-alpha%29.jpg'); // Textura de Andrómeda real (puedes cambiarla)
 
         // Núcleo
         const coreGeometry = new THREE.SphereGeometry(3, 64, 64);
@@ -231,8 +231,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (galaxyType === 'elliptical') {
                 const geometry = new THREE.SphereGeometry(size, 32, 32);
                 const material = new THREE.MeshBasicMaterial({
-                    color: new THREE.Color().setHSL(0.5 + index * 0.1, 0.7, 0.3),
-                    emissive: new THREE.Color().setHSL(0.5 + index * 0.1, 0.5, 0.1)
+                    color: new THREE.Color().setHSL(0.5 + index * 0.1, 0.7, 0.3)
+                    // Eliminado 'emissive' para corregir la advertencia
                 });
                 const galaxy = new THREE.Mesh(geometry, material);
                 galaxyGroup.add(galaxy);
