@@ -1,0 +1,45 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universo de Ana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="universe-container" id="universeContainer">
+        <div class="universe-title">Universo de Ana</div>
+        
+        <!-- Canvas para la vista inicial de Andrómeda -->
+        <canvas id="andromedaCanvas"></canvas>
+        
+        <div class="galaxy-container">
+            <div class="message">Eres el centro de mi universo Ana</div>
+            <div class="discover-message">Explora el universo para descubrir mensajes de amor</div>
+            <canvas id="galaxyCanvas"></canvas>
+            <div class="instructions">Haz clic y arrastra para girar en 3D • Rueda del mouse para zoom</div>
+            <div class="zoom-indicator">Zoom: 100%</div>
+
+            <div class="music-player">
+                <button class="music-btn" id="playPauseBtn">⏸️</button>
+                <div class="music-info">Keane - Somewhere Only We Know</div>
+                <div class="volume-control">
+                    <span style="color: #aabbcc;">🔊</span>
+                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+                </div>
+            </div>
+
+            <!-- Reproductor de audio HTML5 -->
+            <audio id="backgroundMusic" loop autoplay muted>
+                <source src="https://www.dropbox.com/scl/fi/ju447r9wmlj7r499nq42c/Keane-Somewhere-Only-We-Know-espa-ol-lyrics-_2_2.mp3?rlkey=dx6g00mnwmp3t46jml887ij49&st=b0ptd8bz&dl=1" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
