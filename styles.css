@@ -1,0 +1,1747 @@
+/* ===== CORRECCIÓN CRÍTICA: HABILITAR MOUSE GLOBALMENTE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    pointer-events: auto !important; /* CRÍTICO: Permitir eventos en TODOS los elementos */
+}
+
+html, body {
+    overflow: hidden;
+    background-color: #000;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto !important; /* CRÍTICO: Asegurar que body/html permitan eventos */
+    cursor: default !important;
+}
+
+.universe-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto !important;
+}
+
+.universe-title {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 42px;
+    color: #ff4d88;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 0 0 15px #ff4d88, 0 0 25px #ff4d88;
+    z-index: 100;
+    pointer-events: none; /* Este puede seguir sin eventos porque es solo texto */
+    animation: pulse 3s infinite alternate;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ===== REPRODUCTOR MODERNO MEJORADO ===== */
+.music-player {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    z-index: 1000; /* Alto z-index para estar por encima */
+    background: linear-gradient(135deg, rgba(26, 11, 46, 0.95), rgba(45, 27, 105, 0.95), rgba(74, 44, 146, 0.95));
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 77, 136, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 77, 136, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    min-width: 280px;
+    transition: all 0.3s ease;
+    pointer-events: auto !important; /* CRÍTICO: Asegurar que el reproductor sea clickeable */
+}
+
+/* Estado minimizado */
+.music-player.minimized {
+    min-width: auto;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.music-player.minimized .player-header,
+.music-player.minimized .wave-animation,
+.music-player.minimized .song-info,
+.music-player.minimized .progress-container,
+.music-player.minimized .player-controls,
+.music-player.minimized .volume-control {
+    display: none;
+}
+
+.music-player.minimized .mini-icon {
+    display: block;
+    font-size: 20px;
+    color: #ffccff;
+    animation: pulse 2s infinite;
+}
+
+.mini-icon {
+    display: none;
+}
+
+.player-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.music-icon {
+    font-size: 16px;
+    margin-right: 8px;
+    background: linear-gradient(45deg, #ff4d88, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px rgba(255, 77, 136, 0.6));
+}
+
+.player-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffccff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.song-info {
+    margin-bottom: 10px;
+}
+
+.song-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.song-artist {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 11px;
+    color: #aabbcc;
+    opacity: 0.8;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    gap: 15px;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    color: #ffccff;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+    pointer-events: auto !important; /* CRÍTICO: Botones clickeables */
+}
+
+.control-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 77, 136, 0.3), rgba(138, 43, 226, 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+}
+
+.control-btn:hover::before {
+    opacity: 1;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 77, 136, 0.4);
+    color: #ffffff;
+}
+
+.play-pause-btn {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(45deg, #ff4d88, #8a2be2);
+    box-shadow: 0 0 20px rgba(255, 77, 136, 0.5);
+    font-size: 16px;
+    color: #ffffff;
+    position: relative;
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(255, 77, 136, 0.7);
+}
+
+.play-icon {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 14px solid #ffffff;
+    margin-left: 3px;
+}
+
+.pause-icon {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.pause-bar {
+    width: 4px;
+    height: 14px;
+    background-color: #ffffff;
+    border-radius: 1px;
+}
+
+.progress-container {
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    pointer-events: auto !important; /* CRÍTICO: Barra de progreso clickeable */
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ff4d88, #8a2be2);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s linear;
+    position: relative;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+    box-shadow: 0 0 8px rgba(255, 77, 136, 0.8);
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 10px;
+    color: #aabbcc;
+    margin-top: 4px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-icon {
+    color: #ffccff;
+    font-size: 14px;
+    min-width: 16px;
+}
+
+.volume-slider-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.volume-slider {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    pointer-events: auto !important; /* CRÍTICO: Control de volumen clickeable */
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 6px rgba(255, 77, 136, 0.8);
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 6px rgba(255, 77, 136, 0.8);
+    cursor: pointer;
+    border: none;
+}
+
+.wave-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    height: 16px;
+    margin-bottom: 8px;
+}
+
+.wave-bar {
+    width: 2px;
+    height: 6px;
+    background: linear-gradient(to top, #ff4d88, #8a2be2);
+    border-radius: 1px;
+    animation: wave 1.5s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.wave-bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes wave {
+    0%, 100% { height: 6px; }
+    50% { height: 12px; }
+}
+
+.minimize-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #ffccff;
+    font-size: 12px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    pointer-events: auto !important; /* CRÍTICO: Botón minimizar clickeable */
+}
+
+.minimize-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.2);
+}
+
+/* ===== CORRECCIÓN CRÍTICA: CANVAS Y CONTENEDORES PRINCIPALES ===== */
+.galaxies-view, .galaxy-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto !important; /* CRÍTICO: Vistas principales clickeables */
+}
+
+#galaxiesCanvas, #galaxyCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: auto !important; /* CRÍTICO: Canvas clickeable */
+    cursor: pointer;
+}
+
+.galaxy-names {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Las etiquetas no bloquean eventos */
+    z-index: 10;
+}
+
+/* ETIQUETAS MEJORADAS */
+.galaxy-label {
+    position: absolute;
+    color: #ffffff !important;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 
+        0 0 15px rgba(255, 77, 136, 1),
+        0 0 25px rgba(255, 77, 136, 0.9),
+        0 0 35px rgba(255, 77, 136, 0.7),
+        0 0 45px rgba(255, 77, 136, 0.5) !important;
+    pointer-events: auto !important; /* CRÍTICO: Etiquetas clickeables */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 1 !important;
+    z-index: 20;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    backdrop-filter: none;
+    border: none;
+}
+
+.galaxy-label:hover {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1.3);
+    color: #ffffff !important;
+    text-shadow: 
+        0 0 20px rgba(255, 77, 136, 1),
+        0 0 35px rgba(255, 77, 136, 1),
+        0 0 50px rgba(255, 77, 136, 0.9) !important;
+    background: transparent;
+    border: none;
+}
+
+.galaxy-label.zoomed {
+    font-size: 32px !important;
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    text-shadow: 
+        0 0 20px rgba(255, 77, 136, 1),
+        0 0 35px rgba(255, 77, 136, 0.9),
+        0 0 50px rgba(255, 77, 136, 0.7),
+        0 0 65px rgba(255, 77, 136, 0.5) !important;
+    opacity: 1 !important;
+    z-index: 1000 !important;
+    background: transparent;
+    padding: 0;
+}
+
+.galaxy-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+    pointer-events: auto !important; /* CRÍTICO: Header clickeable */
+}
+
+.back-button {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ff4d88;
+    color: #ff4d88;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    pointer-events: auto !important; /* CRÍTICO: Botón volver clickeable */
+}
+
+.back-button:hover {
+    background: rgba(255, 77, 136, 0.2);
+    transform: scale(1.05);
+}
+
+.galaxy-title {
+    font-size: 32px;
+    color: #ff4d88;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 0 0 15px #ff4d88;
+    z-index: 1000;
+}
+
+/* ===== CORRECCIÓN CRÍTICA: CONTENIDO DE GALAXIA ===== */
+.galaxy-content {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 80px);
+    z-index: 50;
+    pointer-events: auto !important; /* CRÍTICO: Permitir eventos en el contenido */
+}
+
+/* CORRECCIÓN ESPECÍFICA PARA LABERINTO */
+#laberintoContainer {
+    pointer-events: auto !important;
+    cursor: default !important;
+}
+
+/* BOTÓN VOLVER AL UNIVERSO */
+#backToUniverseBtn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10000 !important;
+    padding: 12px 18px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    border: 1px solid rgba(255, 77, 136, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    display: none;
+    text-shadow: 0 0 10px rgba(255, 77, 136, 0.7);
+    box-shadow: 0 0 15px rgba(255, 77, 136, 0.3);
+    pointer-events: auto !important; /* CRÍTICO: Botón clickeable */
+}
+
+#backToUniverseBtn:hover {
+    background: rgba(255, 77, 136, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 77, 136, 0.6);
+}
+
+/* ===== MODALES - ASEGURAR QUE SEAN CLICKEABLES ===== */
+#finalGalaxyAuthModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(10px);
+    pointer-events: auto !important; /* CRÍTICO: Modal clickeable */
+}
+
+.auth-container {
+    background: linear-gradient(135deg, #1a0b2e, #2d1b69, #4a2c92);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 
+        0 0 40px rgba(255, 77, 136, 0.5),
+        0 0 80px rgba(138, 43, 226, 0.3);
+    border: 2px solid #8a2be2;
+    text-align: center;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.4s ease;
+    pointer-events: auto !important; /* CRÍTICO: Contenedor auth clickeable */
+}
+
+#finalGalaxyAuthModal.show .auth-container {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.auth-header h2 {
+    color: #ff4d88;
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(255, 77, 136, 0.7);
+}
+
+.auth-subtitle {
+    color: #aabbcc;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    margin-bottom: 30px;
+}
+
+.auth-form label {
+    display: block;
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#authPasswordInput {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #8a2be2;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    pointer-events: auto !important; /* CRÍTICO: Input clickeable */
+}
+
+#authPasswordInput:focus {
+    outline: none;
+    border-color: #ff4d88;
+    box-shadow: 0 0 15px rgba(255, 77, 136, 0.5);
+}
+
+.auth-btn {
+    background: linear-gradient(90deg, #ff4d88, #8a2be2);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    pointer-events: auto !important; /* CRÍTICO: Botón auth clickeable */
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 77, 136, 0.4);
+}
+
+#authError {
+    color: #ff6b6b;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    margin-top: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    min-height: 20px;
+}
+
+#authError.show {
+    opacity: 1;
+}
+
+.auth-instructions {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 77, 136, 0.3);
+}
+
+.auth-instructions h3 {
+    color: #ff4d88;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.auth-instructions p {
+    color: #aabbcc;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.auth-hint {
+    background: rgba(255, 165, 0, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255, 165, 0, 0.5);
+}
+
+.auth-hint p {
+    color: #ffcc00;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    margin: 0;
+}
+
+.hint-text {
+    color: #ffaa00;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
+}
+
+/* ===== MODAL DE NOTIFICACIÓN ===== */
+#finalGalaxyNotification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    backdrop-filter: blur(15px);
+    pointer-events: auto !important; /* CRÍTICO: Modal notificación clickeable */
+}
+
+/* ===== CORRECCIÓN DEFINITIVA PARA INTERACCIÓN DEL MOUSE ===== */
+canvas, 
+#galaxiesCanvas, 
+#galaxyCanvas {
+    pointer-events: auto !important;
+    z-index: 1 !important;
+}
+
+.galaxy-view, 
+.galaxies-view, 
+.galaxy-content {
+    pointer-events: auto !important;
+}
+
+.loading-overlay,
+.loading-content,
+.loading-spinner {
+    pointer-events: none !important;
+}
+
+body, html {
+    cursor: default !important;
+}
+
+.notification-container {
+    background: linear-gradient(135deg, #1a0b2e 0%, #2d1b69 50%, #4a2c92 100%);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 
+        0 0 50px rgba(255, 77, 136, 0.6),
+        0 0 100px rgba(138, 43, 226, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.1);
+    border: 3px solid #ff4d88;
+    text-align: center;
+    position: relative;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: notificationAppear 0.6s ease-out forwards;
+    pointer-events: auto !important; /* CRÍTICO: Contenedor notificación clickeable */
+}
+
+@keyframes notificationAppear {
+    0% {
+        transform: scale(0.8) translateY(-50px);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.05) translateY(10px);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 77, 136, 0.3);
+}
+
+.notification-title {
+    color: #ff4d88;
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+    text-shadow: 0 0 15px rgba(255, 77, 136, 0.7);
+    margin: 0;
+}
+
+.close-notification {
+    background: none;
+    border: none;
+    color: #ff4d88;
+    font-size: 32px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 77, 136, 0.7);
+    pointer-events: auto !important; /* CRÍTICO: Botón cerrar clickeable */
+    z-index: 10002 !important;
+}
+
+.close-notification:hover {
+    background: rgba(255, 77, 136, 0.2);
+    transform: scale(1.2);
+    color: #ff88aa;
+    box-shadow: 0 0 20px rgba(255, 77, 136, 0.5);
+}
+
+.notification-content {
+    margin-bottom: 30px;
+}
+
+.notification-message {
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.clue-highlight {
+    color: #ffcc00;
+    font-weight: 700;
+    font-style: italic;
+    text-shadow: 
+        0 0 15px rgba(255, 204, 0, 0.8),
+        0 0 25px rgba(255, 204, 0, 0.5);
+    background: rgba(255, 204, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 204, 0, 0.3);
+}
+
+.notification-subtitle {
+    color: #aabbcc;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.enter-galaxy-btn {
+    background: linear-gradient(90deg, #ff4d88, #8a2be2);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 
+        0 0 20px rgba(255, 77, 136, 0.4),
+        0 0 40px rgba(138, 43, 226, 0.2);
+    margin-top: 20px;
+    pointer-events: auto !important; /* CRÍTICO: Botón entrar clickeable */
+}
+
+.enter-galaxy-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 0 30px rgba(255, 77, 136, 0.6),
+        0 0 60px rgba(138, 43, 226, 0.3);
+    background: linear-gradient(90deg, #ff69b4, #9370db);
+}
+
+.enter-galaxy-btn:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* ===== CORRECCIÓN: ASEGURAR QUE TODOS LOS BOTONES SEAN CLICKEABLES ===== */
+button, 
+[onclick], 
+.control-btn, 
+.emergency-btn,
+.ana-love-text,
+.heart-text,
+.musica-note {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* ===== ESTILOS RESTANTES (se mantienen igual) ===== */
+
+/* Animación de vibración para errores */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+    border-color: #ff6b6b !important;
+}
+
+/* Estilos específicos para galaxias (se mantienen igual) */
+.musica-message,
+.ana-message,
+.heart-message,
+.final-message,
+.libro-message,
+.comienzo-message {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    color: #ff4d88;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 0 0 15px #ff4d88, 0 0 25px #ff4d88;
+    z-index: 100;
+    pointer-events: none;
+    animation: pulse 3s infinite alternate;
+}
+
+.musica-discover-message,
+.ana-discover-message,
+.heart-discover-message,
+.final-discover-message,
+.libro-discover-message,
+.comienzo-discover-message {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #aabbcc;
+    font-family: 'Dancing Script', cursive;
+    z-index: 100;
+    opacity: 0.8;
+    animation: fadeInOut 4s infinite alternate;
+}
+
+.musica-instructions,
+.ana-instructions,
+.heart-instructions,
+.final-instructions,
+.libro-instructions,
+.comienzo-instructions {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #aabbcc;
+    z-index: 100;
+}
+
+.musica-zoom-indicator,
+.ana-zoom-indicator,
+.heart-zoom-indicator,
+.final-zoom-indicator,
+.libro-zoom-indicator,
+.comienzo-zoom-indicator {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: #aabbcc;
+    font-size: 14px;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.musica-loading,
+.ana-loading,
+.heart-loading,
+.final-loading,
+.libro-loading,
+.comienzo-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Scroll container para música */
+.scroll-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    height: 60%;
+    background: linear-gradient(135deg, #1a0b2e, #2d1b69, #4a2c92);
+    border-radius: 15px;
+    box-shadow: 
+        0 0 30px rgba(255, 77, 136, 0.5),
+        0 0 60px rgba(138, 43, 226, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    z-index: 90;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #8a2be2;
+    pointer-events: auto !important;
+}
+
+.scroll-top, .scroll-bottom {
+    height: 30px;
+    background: linear-gradient(90deg, #ff4d88, #8a2be2);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-top {
+    border-radius: 15px 15px 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scroll-bottom {
+    border-radius: 0 0 15px 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scroll-top::before, .scroll-bottom::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        transparent 100%);
+    animation: shimmer 3s infinite;
+}
+
+.scroll-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto !important;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 77, 136, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        linear-gradient(to bottom, rgba(26, 11, 46, 0.9) 0%, rgba(45, 27, 105, 0.9) 100%);
+    position: relative;
+    z-index: 1;
+    pointer-events: auto !important;
+    scrollbar-width: thin;
+    scrollbar-color: #ff4d88 transparent;
+}
+
+.scroll-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll-content::-webkit-scrollbar-thumb {
+    background: #ff4d88;
+    border-radius: 4px;
+}
+
+.scroll-content::-webkit-scrollbar-thumb:hover {
+    background: #ff6b9c;
+}
+
+.scroll-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    z-index: -1;
+}
+
+.lyrics-container {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #e6e6fa;
+    font-size: 22px;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.lyric-line {
+    margin: 18px 0;
+    opacity: 0.4;
+    transition: all 0.5s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.lyric-line.active {
+    opacity: 1;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 26px;
+    text-shadow: 
+        0 0 10px rgba(255, 77, 136, 0.8),
+        0 0 20px rgba(255, 77, 136, 0.5);
+    transform: scale(1.05);
+}
+
+.lyric-line.past {
+    opacity: 0.7;
+    color: #d8bfd8;
+}
+
+.music-progress {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.music-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff4d88, #8a2be2);
+    width: 0%;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(255, 77, 136, 0.7);
+}
+
+.music-time {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #e6e6fa;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    z-index: 100;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Notas musicales flotantes */
+.musica-note {
+    position: absolute;
+    color: #ffccff;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(255, 107, 157, 0.9), 0 0 25px rgba(255, 107, 157, 0.7);
+    pointer-events: none;
+    z-index: 100;
+    transform-origin: center;
+    font-family: 'Quicksand', sans-serif;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    text-align: center;
+    white-space: nowrap;
+    will-change: transform, opacity;
+}
+
+.musica-visualizer {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 120px;
+    z-index: 90;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3px;
+    pointer-events: none;
+}
+
+.musica-bar {
+    width: 8px;
+    background: linear-gradient(to top, #ff4d88, #ff88aa);
+    border-radius: 4px 4px 0 0;
+    transition: height 0.1s ease;
+    box-shadow: 0 0 10px rgba(255, 77, 136, 0.7);
+}
+
+.ana-love-text {
+    position: absolute;
+    color: #ff9ac9;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 0 0 12px rgba(255, 105, 180, 0.9), 0 0 20px rgba(255, 105, 180, 0.6);
+    pointer-events: none;
+    z-index: 100;
+    transform-origin: center;
+    font-family: 'Dancing Script', cursive;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    text-align: center;
+    white-space: nowrap;
+    will-change: transform, opacity;
+}
+
+.heart-text {
+    position: absolute;
+    color: #ffccff;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(255, 107, 157, 0.9), 0 0 25px rgba(255, 107, 157, 0.7);
+    pointer-events: none;
+    z-index: 100;
+    transform-origin: center;
+    font-family: 'Quicksand', sans-serif;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    text-align: center;
+    white-space: nowrap;
+    will-change: transform, opacity;
+}
+
+/* ===== NUEVO ESTILO PARA EL MENSAJE CENTRAL DE GALAXIA FINAL ===== */
+.final-central-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 200;
+    width: 90%;
+    max-width: 800px;
+}
+
+.final-main-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 54px;
+    color: #ffffff;
+    text-shadow: 
+        0 0 20px rgba(255, 77, 136, 0.8),
+        0 0 40px rgba(255, 77, 136, 0.6),
+        0 0 60px rgba(255, 77, 136, 0.4),
+        0 0 80px rgba(255, 77, 136, 0.2);
+    margin-bottom: 30px;
+    line-height: 1.3;
+    opacity: 0;
+    animation: fadeInScale 3s ease-out forwards;
+}
+
+.final-sub-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    color: #ffccff;
+    text-shadow: 0 0 15px rgba(255, 204, 255, 0.7);
+    opacity: 0;
+    animation: fadeInUp 3s ease-out 1.5s forwards;
+}
+
+/* PANEL DE INFORMACIÓN DE LA TIERRA */
+.earth-info-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid rgba(79, 195, 247, 0.3);
+    backdrop-filter: blur(15px);
+    max-width: 320px;
+    font-family: 'Quicksand', sans-serif;
+    z-index: 1000;
+    box-shadow: 0 0 30px rgba(79, 195, 247, 0.4);
+    line-height: 1.5;
+    pointer-events: auto !important;
+}
+
+.earth-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #4fc3f7;
+    text-shadow: 0 0 15px rgba(79, 195, 247, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.earth-description {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    color: #e0e0e0;
+}
+
+.earth-stats {
+    margin-bottom: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.stat-label {
+    color: #b0b0b0;
+    font-weight: 500;
+}
+
+.stat-value {
+    color: #4caf50;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+.earth-instructions {
+    font-size: 13px;
+    color: #ff9800;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 15px;
+    line-height: 1.4;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ===== CANVAS PARA ESTRELLAS FUGACES ===== */
+.shooting-stars-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Instrucciones del universo */
+.zoom-instruction {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #aabbcc;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.second-click-instruction {
+    position: absolute;
+    bottom: 90px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #ffcc00;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.navigation-instruction {
+    position: absolute;
+    bottom: 120px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #aaffaa;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+}
+
+.loading-spinner {
+    width: 80px;
+    height: 80px;
+    border: 6px solid rgba(255, 77, 136, 0.3);
+    border-top: 6px solid #ff4d88;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    font-size: 24px;
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 77, 136, 0.7);
+}
+
+.loading-progress {
+    width: 300px;
+    height: 6px;
+    background: rgba(255, 77, 136, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loading-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff4d88, #ff88aa);
+    width: 0%;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(255, 77, 136, 0.7);
+}
+
+/* ANIMACIONES */
+@keyframes pulse { 
+    0% { transform: scale(1); } 
+    100% { transform: scale(1.05); } 
+}
+
+@keyframes fadeInOut { 
+    0%, 100% { opacity: 0.6; } 
+    50% { opacity: 1; } 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes fadeInScale {
+    0% { 
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% { 
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% { 
+        text-shadow: 
+            0 0 20px rgba(255, 77, 136, 0.8),
+            0 0 40px rgba(255, 77, 136, 0.6),
+            0 0 60px rgba(255, 77, 136, 0.4);
+    }
+    50% { 
+        text-shadow: 
+            0 0 30px rgba(255, 77, 136, 1),
+            0 0 60px rgba(255, 77, 136, 0.8),
+            0 0 90px rgba(255, 77, 136, 0.6);
+    }
+}
+
+/* ===== CORRECCIONES ESPECÍFICAS ===== */
+
+/* Permitir eventos en el contenido de la galaxia cuando hay modales */
+.galaxy-content.pointer-events-enabled {
+    pointer-events: auto !important;
+}
+
+/* Cuando un modal está abierto, permitir interacción */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Scroll personalizado mejorado */
+.scroll-content {
+    pointer-events: auto !important;
+    overflow-y: auto !important;
+}
+
+/* Responsive para móviles */
+@media (max-width: 700px) {
+    .universe-title { font-size: 32px; }
+    .music-player { left: 10px; bottom: 10px; padding: 8px 12px; }
+    .galaxy-label { font-size: 20px; }
+    .galaxy-title { font-size: 24px; }
+    .back-button { padding: 8px 12px; font-size: 14px; }
+    .musica-message, .galaxy-message, .ana-message, .heart-message, .final-message, .libro-message, .comienzo-message { font-size: 24px; top: 12px; }
+    .musica-discover-message, .galaxy-discover-message, .ana-discover-message, .heart-discover-message, .final-discover-message, .libro-discover-message, .comienzo-discover-message { top: 52px; font-size: 16px; }
+    .musica-zoom-indicator, .ana-zoom-indicator, .heart-zoom-indicator, .final-zoom-indicator, .libro-zoom-indicator, .comienzo-zoom-indicator { right: 10px; bottom: 10px; font-size: 12px; }
+    .musica-instructions, .galaxy-instructions, .ana-instructions, .heart-instructions, .final-instructions, .libro-instructions, .comienzo-instructions { bottom: 12px; font-size: 13px; }
+    .scroll-container { width: 95%; height: 70%; }
+    .lyrics-container { font-size: 18px; }
+    .lyric-line.active { font-size: 22px; }
+    .music-progress { width: 90%; }
+    .ana-love-text { font-size: 20px; }
+    .heart-text, .musica-note { font-size: 28px; }
+    .zoom-instruction { bottom: 40px; font-size: 14px; }
+    .second-click-instruction { bottom: 60px; font-size: 14px; }
+    .navigation-instruction { bottom: 80px; font-size: 12px; }
+    .loading-text { font-size: 18px; }
+    .loading-spinner { width: 60px; height: 60px; border-width: 5px; }
+    .loading-progress { width: 200px; }
+    .musica-visualizer { bottom: 80px; height: 80px; }
+    .musica-bar { width: 5px; }
+    .final-main-text { font-size: 36px; }
+    .final-sub-text { font-size: 18px; }
+    #backToUniverseBtn { 
+        top: 10px; 
+        left: 10px; 
+        padding: 8px 12px; 
+        font-size: 12px; 
+    }
+    .auth-container {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    .auth-header h2 {
+        font-size: 28px;
+    }
+    .auth-subtitle {
+        font-size: 16px;
+    }
+    #authPasswordInput {
+        padding: 12px;
+        font-size: 14px;
+    }
+    .auth-btn {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+    .notification-container {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    .notification-title {
+        font-size: 24px;
+    }
+    .notification-message {
+        font-size: 18px;
+    }
+    .notification-subtitle {
+        font-size: 14px;
+    }
+    .enter-galaxy-btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+    .earth-info-panel {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+        padding: 15px;
+    }
+    .earth-title {
+        font-size: 20px;
+    }
+    .earth-description {
+        font-size: 13px;
+    }
+    .stat {
+        font-size: 12px;
+    }
+}
+
+/* CORRECCIONES ADICIONALES */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#galaxiesCanvas, #galaxyCanvas {
+    display: block;
+    outline: none;
+}
+
+/* Eliminar bordes y barras de desplazamiento */
+.galaxies-view, .galaxy-view {
+    overflow: hidden !important;
+}
+
+/* Asegurar que el texto se vea correctamente */
+.universe-title {
+    font-family: 'Pacifico', cursive !important;
+    font-size: 42px !important;
+    color: #ff4d88 !important;
+    text-shadow: 0 0 15px #ff4d88, 0 0 25px #ff4d88 !important;
+    animation: pulse 3s infinite alternate !important;
+}
+
+/* Mejorar visibilidad de las etiquetas de galaxias */
+.galaxy-label {
+    font-family: 'Quicksand', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    color: #ffccff !important;
+    text-shadow: 0 0 10px rgba(255, 77, 136, 0.7) !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Asegurar que no haya scrollbars */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* ===== CORRECCIONES ESPECÍFICAS PARA GALAXIA DEL COMIENZO ===== */
+
+/* Botón cerrar específico para la ventana de información */
+.close-btn {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    z-index: 10002 !important;
+    background: linear-gradient(135deg, #ff6b6b, #c44569) !important;
+    border: 2px solid #ffd700 !important;
+    color: #fff !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+}
+
+.close-btn:hover {
+    background: linear-gradient(135deg, #ff5252, #b33939) !important;
+    transform: scale(1.2) !important;
+    box-shadow: 0 0 15px rgba(255, 82, 82, 0.7) !important;
+}
+
+/* Ventana de información de la Galaxia del Comienzo */
+#infoWindow {
+    pointer-events: auto !important;
+    z-index: 10000 !important;
+}
+
+/* Permitir scroll en el contenido del pergamino */
+.parchment-content {
+    pointer-events: auto !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #ff6bff transparent !important;
+}
+
+.parchment-content::-webkit-scrollbar {
+    width: 6px !important;
+    display: block !important;
+}
+
+.parchment-content::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.parchment-content::-webkit-scrollbar-thumb {
+    background: #ff6bff !important;
+    border-radius: 3px !important;
+}
+
+.parchment-content::-webkit-scrollbar-thumb:hover {
+    background: #ff88aa !important;
+}
+
+/* Asegurar que la ventana sea clickeable */
+.window-container {
+    pointer-events: auto !important;
+}
