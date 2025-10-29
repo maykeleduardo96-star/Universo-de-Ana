@@ -695,6 +695,45 @@ class GalaxyLibro {
             {
                 title: "Capítulo V – El primer mes",
                 content: "Hoy, mirando hacia atrás, parece increíble todo lo que ha pasado en tan poco tiempo.\n\nUn mes. Solo un mes desde aquel primer mensaje… y sin embargo, ya hay una historia detrás de cada sonrisa, de cada 'buenos días', de cada llamada que duró más de lo previsto.\n\nUn mes de conocerse, de aprender a leerse sin palabras, de entender que la conexión no siempre necesita explicaciones.\n\nUn mes desde que la vida, sin previo aviso, decidió cruzar dos caminos que estaban destinados a encontrarse.\n\nY así, Maykel y Ana celebran su primer mes juntos: recordando cómo todo empezó, con la certeza de que esta historia —la suya— apenas está empezando.\n\nPorque hay amores que no necesitan ruido para ser grandes.\nSolo necesitan una casualidad, una conversación… y dos personas que decidan no soltarse.",
+            },
+            {
+                title: "Capítulo VI – Entre risas, juegos y otoños",
+                content: `Ana ya había leído la historia.
+Cada palabra, cada detalle, cada recuerdo que Maykel había dejado por escrito… y al hacerlo, sonrió. No una sonrisa cualquiera, sino de esas que nacen del alma, las que solo aparecen cuando uno se siente querido de verdad.
+
+Maykel la observaba, quizá en silencio, sabiendo que ella lo estaba leyendo en voz baja, entre líneas, encontrando en cada párrafo un pedacito de ellos.
+Era extraño —y hermoso— ver cómo algo tan simple como un texto podía unirlos todavía más.
+Ahora la historia ya no era solo suya: también era de ella.
+
+Y justo en ese momento, cuando el aire comenzaba a llenarse del olor del otoño y las calles se preparaban para Halloween, su historia seguía creciendo, como una película que no quiere terminar.`
+            },
+            {
+                title: "",
+                content: `Ana ya tenía listo su disfraz; se lo había mostrado entre risas y secretos, con ese brillo en los ojos que mezcla ilusión y picardía.
+A Maykel le encantaba verla emocionada, imaginársela entre luces naranjas y telarañas falsas, tan metida en su papel que parecía sacada de un mundo mágico.
+
+Últimamente habían estado compartiendo todo:
+partidas interminables de It Takes Two, donde cada nivel era una metáfora más de su relación.
+Cooperaban, discutían, se reían, y al final siempre encontraban la forma de avanzar juntos.
+Era curioso cómo ese juego —hecho de trabajo en equipo y sincronía— parecía hablarles directamente: la historia solo continúa si ambos siguen juntos.`
+            },
+            {
+                  title: "",
+                  content:  `Y cuando no jugaban, veían películas del Estudio Ghibli.
+Ana adoraba los paisajes, los mundos imposibles, las criaturas que parecían sueños; y Maykel disfrutaba ver cómo se le iluminaban los ojos en cada escena.
+A veces no hacía falta decir nada: bastaba con compartir el silencio, sabiendo que ambos estaban en el mismo universo, aunque separados por una pantalla.
+
+Había algo en esas noches de película, en esas partidas compartidas, que hacía sentir que el tiempo se detenía.
+Que lo cotidiano se volvía extraordinario.
+Que la historia que Maykel había escrito seguía viva, creciendo entre risas, juegos y pequeñas rutinas que ahora sabían a amor.
+         
+El primer mes había quedado atrás, y el segundo se acercaba con promesas nuevas.
+Halloween sería su próximo recuerdo compartido; después, quién sabe.
+Pero lo cierto es que cada día juntos añadía una página más al libro que nunca habían planeado escribir, y que ahora ninguno de los dos quería terminar.`
+            },
+            {
+                title: "¿Fin?",
+                content: "Eso esta por verse"
             }
         ];
     }
