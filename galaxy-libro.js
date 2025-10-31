@@ -753,7 +753,7 @@ Cuando haces algo con esfuerzo y empeño termina notandose, incluso por encima d
 realizarse o no ser mas que un espectador mas del otro.
 
 Hoy, fue un dia dificil...`
-           },
+           }
         ];
     }
 
@@ -1185,5 +1185,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
 
 
