@@ -732,9 +732,28 @@ Halloween sería su próximo recuerdo compartido; después, quién sabe.
 Pero lo cierto es que cada día juntos añadía una página más al libro que nunca habían planeado escribir, y que ahora ninguno de los dos quería terminar.`
             },
             {
-                title: "¿Fin?",
-                content: "Eso esta por verse"
-            }
+                title: "Capitulo VII, Dulce Amargor",
+                content: `Ciertamente esto no es un capitulo que quiera escribir ni menos que desee volver a recordar, Esta es la perspectiva de Maykel.
+Hace un tiempo estabamos planeando hacer algo, un evento poco importante en una perspectiva general pero importante para Maykel, No es un tema de ego.
+Ni menos de orgullo, Era un plan que contaba con los dedos de las manos de forma regresiva como un niño que espera que su padre llegue con dulces.
+
+Spoiler, No sucedio. Paso todo lo que no debia pasar menos lo que queria que pasara. Ana, ella se le ocurrio una nueva idea que definitivamente apoye.
+Sin saber que intervendria de manera directa con lo que estuve esperando por semanas, No fue su culpa. Tuvo una idea y decidio hacerlo aunque no tomo. 
+En cuenta si ambos planes se chocarian entre si, Para resumirlo si lo fue, me senti desplazado a un segundo lugar. A esperar que terminara aquella idea.
+Que termino pensando unos dias antes, No lo tome bien. Me senti como un niño que le dicen de ultimo minuto que ya no iran al parque de diversiones y no.
+Puede hacer mas nada que aceptarlo de mala gana, con mala actitud y con dolor de ser la segunda opcion porque la primera era obligatoria.`
+            },
+            {
+                title: "",
+                content: `¿Les ha pasado que hagan lo que hagan no pueden dejar de sentirse vacio? - Coño e la madre - Tipica expresion que usa Maykel.
+Pues esta era la clara muestra de su frustración, Todo esto sucedio por falta de organizacion en los tiempos pero, estaba frustrado. Mas porque no hubo.
+Ninguna diferencia. Maykel termino viendo todo el trabajo y empeño de Ana por sus estados, como cualquier persona mas. Pero debia admitirlo, Se veia preciosa.
+
+Cuando haces algo con esfuerzo y empeño termina notandose, incluso por encima de una pataleta infantil. Pero no supo que le dolio mas, Si ver sus planes no.
+realizarse o no ser mas que un espectador mas del otro.
+
+Hoy, fue un dia dificil...
+           },
         ];
     }
 
@@ -1166,3 +1185,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
