@@ -752,7 +752,7 @@ Ninguna diferencia. Maykel termino viendo todo el trabajo y empeño de Ana por s
 Cuando haces algo con esfuerzo y empeño termina notandose, incluso por encima de una pataleta infantil. Pero no supo que le dolio mas, Si ver sus planes no.
 realizarse o no ser mas que un espectador mas del otro.
 
-Hoy, fue un dia dificil...
+Hoy, fue un dia dificil...`
            },
         ];
     }
@@ -1185,4 +1185,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
 
