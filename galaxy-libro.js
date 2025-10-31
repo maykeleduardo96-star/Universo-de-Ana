@@ -748,6 +748,7 @@ Puede hacer mas nada que aceptarlo de mala gana, con mala actitud y con dolor de
                 content: `¿Les ha pasado que hagan lo que hagan no pueden dejar de sentirse vacio? - Coño e la madre - Tipica expresion que usa Maykel.
 Pues esta era la clara muestra de su frustración, Todo esto sucedio por falta de organizacion en los tiempos pero, estaba frustrado. Mas porque no hubo
 Ninguna diferencia. Maykel termino viendo todo el trabajo y empeño de Ana por sus estados, como cualquier persona mas. Pero debia admitirlo, Se veia preciosa.
+Sus bonitos maquillaje, esos que hace con su creatividad siempre me encanta. Pero no se lo pude decir, Definitivamente aqui si gano el orgullo. 
 
 Cuando haces algo con esfuerzo y empeño termina notandose, incluso por encima de una pataleta infantil. Pero no supo que le dolio mas, Si ver sus planes no
 realizarse o no ser mas que un espectador mas del otro.
@@ -1185,6 +1186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
 
 
 
