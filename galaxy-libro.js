@@ -740,12 +740,14 @@ Ni menos de orgullo, Era un plan que contaba con los dedos de las manos de forma
 Spoiler, No sucedio. Paso todo lo que no debia pasar menos lo que queria que pasara. Ana, ella se le ocurrio una nueva idea que definitivamente apoye.
 Sin saber que intervendria de manera directa con lo que estuve esperando por semanas, No fue su culpa. Tuvo una idea y decidio hacerlo aunque no tomo 
 En cuenta si ambos planes se chocarian entre si, Para resumirlo si lo fue, me senti desplazado a un segundo lugar. A esperar que terminara aquella idea.
-Que termino pensando unos dias antes, No lo tome bien. Me senti como un niño que le dicen de ultimo minuto que ya no iran al parque de diversiones y no
-Puede hacer mas nada que aceptarlo de mala gana, con mala actitud y con dolor de ser la segunda opcion porque la primera era obligatoria.`
+Que termino pensando unos dias antes, No lo tome bien. `
             },
             {
                 title: "",
-                content: `¿Les ha pasado que hagan lo que hagan no pueden dejar de sentirse vacio? - Coño e la madre - Tipica expresion que usa Maykel.
+                content: `Me senti como un niño que le dicen de ultimo minuto que ya no iran al parque de diversiones y no
+Puede hacer mas nada que aceptarlo de mala gana, con mala actitud y con dolor de ser la segunda opcion porque la primera era obligatoria.
+
+¿Les ha pasado que hagan lo que hagan no pueden dejar de sentirse vacio? - Coño e la madre - Tipica expresion que usa Maykel.
 Pues esta era la clara muestra de su frustración, Todo esto sucedio por falta de organizacion en los tiempos pero, estaba frustrado. Mas porque no hubo
 Ninguna diferencia. Maykel termino viendo todo el trabajo y empeño de Ana por sus estados, como cualquier persona mas. Pero debia admitirlo, Se veia preciosa.
 Sus bonitos maquillaje, esos que hace con su creatividad siempre me encanta. Pero no se lo pude decir, Definitivamente aqui si gano el orgullo. 
@@ -1186,6 +1188,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
 
 
 
