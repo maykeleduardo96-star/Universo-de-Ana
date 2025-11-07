@@ -762,7 +762,51 @@ sin embargo ¿Como le quitas importancia a alguien que lo es todo para ti? deber
 
 
 Hoy, fue un dia dificil...`
-          }
+          },
+          {
+              title: "Capitulo VIII - Cuando el silencio pesa más que las palabras",
+              content: `Nunca pensé que escribir este capítulo dolería tanto.
+No por las palabras, sino por lo que representan.
+Porque esta vez no se trata de recuerdos felices ni de risas compartidas, sino de un silencio que se va volviendo más grande cada día, como una sombra que se extiende sin permiso.
+
+Ana…
+No sé en qué momento empezó a alejarse, solo sé que un día me desperté y ya no era igual.
+Sus mensajes sonaban distintos, como si el cariño hubiera cambiado de idioma.
+Donde antes había un “amor” lleno de ternura, ahora solo hay un “oye” que suena vacío, como si buscara mantener una distancia invisible.`
+         },
+          {   
+              title: "",
+              content: `He intentado todo para volver a encender esa chispa:
+hacerla reír, recordarle los buenos momentos, traer de vuelta los detalles que alguna vez la hicieron sonreír.
+Le he hecho regalitos, le he enviado recuerdos, incluso ese video que edité de nuestra partida en It Takes Two, aquella donde reíamos tanto que el tiempo parecía detenerse.
+Quería recordarle —y recordarme— que aún podíamos ser ese equipo, que aún quedaba algo de nosotros en medio del caos.
+
+Pero a veces, por más que uno se esfuerce, no puede salvar algo que el otro ya ha dejado de sostener.
+Y duele… duele hasta el alma.
+Duele ver cómo alguien que era tu refugio empieza a desaparecer poco a poco, sin pelear, sin gritar, solo desapareciendo.`
+           },
+          {
+              title: "",
+              content: `Ya no habla en clase como antes, ya no busca mis ojos en mitad del día, ya no se queda despierta conmigo solo para hablar de nada.
+Ahora dice “te hablo cuando llegue a casa”, y esas palabras suenan como una despedida disfrazada de costumbre.
+
+Cada día se aleja un poco más, y yo me quedo aquí, tratando de detenerla con los recuerdos, con mis ganas, con mi amor… pero no puedo.
+No hay forma de forzar a alguien a quedarse cuando su corazón ya empezó a irse.
+
+Y es ahí donde me duele más: en el intento, en la impotencia, en el vacío que deja lo que ya no vuelve.
+Porque yo la sigo queriendo con todo lo que tengo, pero siento que cada palabra que digo se pierde en un lugar al que ya no tengo acceso.`
+              },
+              {  
+                  title: "",
+                  content: `A veces pienso que nuestra historia —la historia de Maykel y Ana— sigue viva, pero solo en mí.
+Que ella ya pasó la página, mientras yo sigo detenido en la nuestra, intentando que no se cierre.
+
+Y si este capítulo suena triste, es porque lo es.
+Porque en él escribo con el corazón roto, con los dedos temblando y el alma agotada.
+Porque a veces el amor no muere con un grito, sino con un silencio.
+
+Y en ese silencio… me estoy quedando yo.`
+          },            
         ];
     }
 
@@ -1194,6 +1238,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
 
 
 
