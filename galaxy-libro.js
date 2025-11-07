@@ -764,7 +764,7 @@ sin embargo ¿Como le quitas importancia a alguien que lo es todo para ti? deber
 Hoy, fue un dia dificil...`
           },
           {
-              title: "Capitulo VIII - Cuando el silencio pesa más que las palabras",
+              title: "Capitulo VIII - Silencio",
               content: `Nunca pensé que escribir este capítulo dolería tanto.
 No por las palabras, sino por lo que representan.
 Porque esta vez no se trata de recuerdos felices ni de risas compartidas, sino de un silencio que se va volviendo más grande cada día, como una sombra que se extiende sin permiso.
@@ -806,7 +806,121 @@ Porque en él escribo con el corazón roto, con los dedos temblando y el alma ag
 Porque a veces el amor no muere con un grito, sino con un silencio.
 
 Y en ese silencio… me estoy quedando yo.`
-          },            
+          },
+          {
+              title: "Capitulo IX - Llama Debil",
+              content: `Anoche volví a hablar con ella.
+Otra vez intenté abrirle el corazón, con la esperanza de que mis palabras la alcanzaran, de que, por un momento, recordara cómo éramos antes: aquella pareja que se buscaba sin cansancio, que se reía de todo, que se quedaba despierta solo por el simple placer de no despedirse.
+
+Le hablé con el alma en la mano, intentando hacerle ver cuánto la amo, cuánto deseo volver a esa versión de nosotros que no necesitaba excusas ni silencios.
+Le recordé a esa niña que me decía “no tengo sueño” solo para quedarse conmigo un rato más.
+Esa Ana que me escribía al llegar de la universidad porque me extrañaba, que se alegraba solo con verme conectado, que encontraba en mí un refugio.
+
+Pero ahora… esa versión suya parece haberse ido.`
+            },
+          {
+              title: "",
+              content: `Ya no hay emoción en sus palabras.
+Donde antes había cariño, ahora hay frases vacías, mecánicas, tan frías como un mensaje automático:
+“Me quedé dormida”,
+“Estaba estudiando”,
+“Fui a hacer esto”.
+
+Antes se tomaba el tiempo de avisarme, de explicarme con ternura qué iba a hacer, no porque yo se lo pidiera, sino porque le importaba que yo lo supiera.
+Porque éramos un “nosotros” y no dos personas caminando en paralelo.
+
+Ahora solo llega con esas pequeñas frases que suenan más a notificaciones que a gestos de amor.
+Y mientras yo busco maneras de acercarme, de recordarle lo que fuimos, ella parece más lejos que nunca.`
+          },
+          {
+              title:"",
+              content: `He tratado de todo:
+de hacerla reír, de revivir los buenos momentos, de sorprenderla con detalles que le recuerden lo mucho que me importa.
+Incluso anoche, mientras le compraba ese disfraz que tanto quería para Navidad, sonreía pensando en su reacción, en la ilusión que le haría…
+Pero mientras yo lo hacía con el corazón lleno de amor, ella ya estaba jugando con otra persona.
+Ni siquiera esperó a verme, ni a compartir ese pequeño instante conmigo.
+
+Y ese fue el golpe más silencioso, pero también el más profundo:
+entender que ya no soy su primera opción, ni su refugio, ni siquiera su compañía preferida.
+Que mi esfuerzo por verla feliz no la acerca, sino que pasa inadvertido, como si el amor se hubiera vuelto invisible.
+
+No la culpo.
+Las personas cambian, los sentimientos también.
+Pero eso no evita que duela, que cada noche se sienta más fría, que cada palabra suya parezca un adiós disfrazado de rutina.`
+             },
+          {    
+              title: "",
+              content: `Yo sigo aquí, intentando comprender en qué momento pasé de ser su motivo para sonreír, a ser solo un mensaje más en su pantalla.
+Y mientras trato de aferrarme a lo que fuimos, ella parece soltar poco a poco cada hilo que nos unía.
+
+Tal vez el amor no siempre se apaga de golpe; a veces solo se va desgastando hasta quedar reducido a recuerdos que uno guarda para sí.
+Y lo más triste no es verla irse…
+
+es seguir amándola igual, sabiendo que ya no está volviendo.
+
+Creo que la estoy perdiendo y no se que puedo hacer para que regrese a mi...`
+              },
+          {       
+                title: "Capitulo X - Un Adios Amargo",
+              content: `Se acabó.
+Y por más que esa palabra duela, por más que me cueste siquiera escribirla, sé que es la verdad.
+No hubo una pelea final, ni una discusión grande… solo un silencio cada vez más largo, un interés que se fue apagando día tras día, hasta que quedó nada.
+
+Las cosas no mejoraron; por el contrario, cada intento mío de acercarme parecía empujarla más lejos.
+Sus ganas de estar conmigo se fueron diluyendo, como la última luz de una vela antes de apagarse.
+Ya no buscaba momentos, ni excusas para quedarse un poco más.
+
+Incluso lo más simple —mantener su teléfono cargado para poder hablar conmigo— se volvió demasiado.`
+                },
+          {    
+              title: "",
+              content: `Y yo lo sentí todo.
+Sentí cómo se alejaba, cómo cada respuesta suya era más fría, cómo su atención se dispersaba en otros lugares donde mi nombre ya no sonaba.
+Era como ver una estrella apagarse a lo lejos, sabiendo que su luz todavía viaja hacia ti, pero que en realidad ya no existe.
+
+Hoy, con el corazón roto y la garganta hecha un nudo, le dije adiós.
+Un adiós que no quería, que me partió el alma, pero que era necesario.
+Porque no se puede obligar a nadie a quedarse, ni a amar, ni a intentarlo cuando ya no quiere hacerlo.
+
+La amé con todo lo que tenía.
+Con mis palabras, mis detalles, mis desvelos, mis ganas de verla sonreír.
+Y me duele, me duele tanto, saber que ya no soy parte de su felicidad.
+
+Pero el amor, el verdadero amor, también sabe soltar.`
+            },
+          {          
+              title: "",
+              content: `Hoy la dejo ir.
+La dejo seguir su camino, encontrar su paz, su alegría, lo que la haga sentir viva.
+Y aunque duela hasta los huesos, lo hago con amor.
+Porque si de algo estoy seguro, es de que se merece ser feliz, aunque no sea conmigo.
+
+Yo… me quedaré aquí, intentando recoger los pedazos de lo que fui, curando las grietas que dejó su ausencia.
+No con rencor, no con odio, sino con gratitud.
+Porque la amé de verdad. Porque lo di todo. Porque fui sincero en cada gesto.
+
+Y aunque ahora el silencio me acompañe, me queda la tranquilidad de saber que amé sin reservas, que no me quedé con las ganas, que lo intenté hasta el final.
+
+A veces amar no es retener.
+A veces amar es decir adiós con el alma rota, y aún así desearle lo mejor.`
+              },
+          {  
+              title: "Epilogo - Fin",
+              content: `Y así termina esta parte de nuestra historia.
+No con un punto final, sino con un suspiro.
+Con un “te deseo lo mejor” que duele… pero que también libera.
+
+Nunca volvere a amar a nadie de la misma forma en que lo hice contigo, Probablemente nunca me vuelva a esforzar tanto en ver sonreir a alguien.
+
+Este libro, no volvera a actualizarse... 
+
+Me despido con el alma rota pero el corazón tranquilo de saber que ame a alguien como me fuera gustado ser amado, Con todo el amor del mundo.
+
+Te deseo lo mejor de la vida y espero de corazon que puedas ser tan feliz que un dia me recuerdes como alguien que te amo de verdad.
+
+Fin.`
+          }  
+            {
         ];
     }
 
@@ -1238,6 +1352,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
 
 
 
