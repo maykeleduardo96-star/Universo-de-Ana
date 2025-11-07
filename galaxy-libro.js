@@ -915,12 +915,10 @@ Nunca volvere a amar a nadie de la misma forma en que lo hice contigo, Probablem
 Este libro, no volvera a actualizarse... 
 
 Me despido con el alma rota pero el corazón tranquilo de saber que ame a alguien como me fuera gustado ser amado, Con todo el amor del mundo.
-
 Te deseo lo mejor de la vida y espero de corazon que puedas ser tan feliz que un dia me recuerdes como alguien que te amo de verdad.
 
 Fin.`
-          }  
-            {
+          }            
         ];
     }
 
@@ -1352,6 +1350,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
 
 
 
