@@ -858,67 +858,54 @@ Y lo más triste no es verla irse…
 
 es seguir amándola igual, sabiendo que ya no está volviendo.
 
-Creo que la estoy perdiendo y no se que puedo hacer para que regrese a mi...`
-              },
-          {       
-                title: "Capitulo X - Un Adios Amargo",
-              content: `Se acabó.
-Y por más que esa palabra duela, por más que me cueste siquiera escribirla, sé que es la verdad.
-No hubo una pelea final, ni una discusión grande… solo un silencio cada vez más largo, un interés que se fue apagando día tras día, hasta que quedó nada.
+Creo que la estoy perdiendo y no se que puedo hacer para que regrese a mi...`           
+              }, 
+            {
+                title: "Capitulo X - Resistiendo",
+                content: `Fue un día extraño.
+El mismo día en que todo parecía haber terminado, cuando el adiós ya estaba escrito y el corazón se resignaba a curarse poco a poco, ella volvió.
+Y no volvió con indiferencia ni con esas palabras vacías de los últimos días, sino con la mirada que recordaba, con la voz que solía calmarme, con la misma esencia que me había enamorado desde el principio.
 
-Las cosas no mejoraron; por el contrario, cada intento mío de acercarme parecía empujarla más lejos.
-Sus ganas de estar conmigo se fueron diluyendo, como la última luz de una vela antes de apagarse.
-Ya no buscaba momentos, ni excusas para quedarse un poco más.
+Era ella…
+la Ana que me buscaba, la que no quería soltarme, la que temía perderme y que me hacía sentir que todo tenía sentido.
+Por un instante, todo lo que había dolido se detuvo.
+El silencio se rompió, y su forma de mirarme fue suficiente para que mi corazón —a pesar de las heridas— volviera a latir con fuerza.
 
-Incluso lo más simple —mantener su teléfono cargado para poder hablar conmigo— se volvió demasiado.`
-                },
-          {    
-              title: "",
-              content: `Y yo lo sentí todo.
-Sentí cómo se alejaba, cómo cada respuesta suya era más fría, cómo su atención se dispersaba en otros lugares donde mi nombre ya no sonaba.
-Era como ver una estrella apagarse a lo lejos, sabiendo que su luz todavía viaja hacia ti, pero que en realidad ya no existe.
+Me dijo que lo sentía.
+Que no sabía por qué se había puesto así, que no quería alejarme, que todavía me amaba.
+Y aunque parte de mí seguía temerosa, otra parte —la más sincera— solo quería creerle.
+Porque, en el fondo, yo nunca quise irme.`
+              }, 
+            {
+                title: "",
+                content: `Yo no quería rendirme.
+Solo necesitaba saber que aún significaba algo, que todavía había un lugar para mí en su vida, que no todo lo que habíamos vivido se había ido al vacío.
 
-Hoy, con el corazón roto y la garganta hecha un nudo, le dije adiós.
-Un adiós que no quería, que me partió el alma, pero que era necesario.
-Porque no se puede obligar a nadie a quedarse, ni a amar, ni a intentarlo cuando ya no quiere hacerlo.
+Y entonces, lo hizo.
+Me lo demostró.
+Con gestos simples, con palabras que sonaban sinceras, con ese brillo en los ojos que no veía desde hacía tiempo.
 
-La amé con todo lo que tenía.
-Con mis palabras, mis detalles, mis desvelos, mis ganas de verla sonreír.
-Y me duele, me duele tanto, saber que ya no soy parte de su felicidad.
+Y aquí estoy otra vez…
+intentándolo.
+No desde la ingenuidad, sino desde la esperanza.
+Con cuidado, con paciencia, con la fe de que lo que se rompió pueda volver a armarse, pieza a pieza, con amor y voluntad.
 
-Pero el amor, el verdadero amor, también sabe soltar.`
-            },
-          {          
-              title: "",
-              content: `Hoy la dejo ir.
-La dejo seguir su camino, encontrar su paz, su alegría, lo que la haga sentir viva.
-Y aunque duela hasta los huesos, lo hago con amor.
-Porque si de algo estoy seguro, es de que se merece ser feliz, aunque no sea conmigo.
+Sé que no será fácil.
+Las cicatrices no desaparecen de la noche a la mañana, y la confianza no se construye con una sola conversación.
+Pero si hay algo que aprendí en todo este viaje, es que el amor verdadero no siempre se mide por lo que no duele, sino por la fuerza con la que uno decide quedarse incluso después de haber llorado.`
+             }, 
+            {
+                title: "",
+                content: `Quizás este sea el nuevo comienzo que tanto deseábamos.
+Quizás sea el recordatorio de que los errores también pueden enseñarnos a amar mejor.
 
-Yo… me quedaré aquí, intentando recoger los pedazos de lo que fui, curando las grietas que dejó su ausencia.
-No con rencor, no con odio, sino con gratitud.
-Porque la amé de verdad. Porque lo di todo. Porque fui sincero en cada gesto.
+Por ahora, solo quiero creer.
+Quiero pensar que este capítulo no es una recaída, sino una segunda oportunidad escrita con más madurez y menos miedo.
+Y si no lo es, si el destino decide otra cosa, al menos sabré que lo intenté con el corazón abierto, una vez más.
 
-Y aunque ahora el silencio me acompañe, me queda la tranquilidad de saber que amé sin reservas, que no me quedé con las ganas, que lo intenté hasta el final.
-
-A veces amar no es retener.
-A veces amar es decir adiós con el alma rota, y aún así desearle lo mejor.`
-              },
-          {  
-              title: "Epilogo - Fin",
-              content: `Y así termina esta parte de nuestra historia.
-No con un punto final, sino con un suspiro.
-Con un “te deseo lo mejor” que duele… pero que también libera.
-
-Nunca volvere a amar a nadie de la misma forma en que lo hice contigo, Probablemente nunca me vuelva a esforzar tanto en ver sonreir a alguien.
-
-Este libro, no volvera a actualizarse... 
-
-Me despido con el alma rota pero el corazón tranquilo de saber que ame a alguien como me fuera gustado ser amado, Con todo el amor del mundo.
-Te deseo lo mejor de la vida y espero de corazon que puedas ser tan feliz que un dia me recuerdes como alguien que te amo de verdad.
-
-Fin.`
-          }            
+Porque cuando el amor toca de nuevo a la puerta, incluso después del adiós, uno no puede evitar mirar atrás y susurrar:
+"Bienvenida otra vez… te estuve esperando.`
+           }
         ];
     }
 
@@ -1350,6 +1337,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
 
 
 
