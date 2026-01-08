@@ -905,7 +905,25 @@ Y si no lo es, si el destino decide otra cosa, al menos sabré que lo intenté c
 
 Porque cuando el amor toca de nuevo a la puerta, incluso después del adiós, uno no puede evitar mirar atrás y susurrar:
 "Bienvenida otra vez… te estuve esperando.`
-           }
+           },
+           { 
+                title: "Fin",
+               content: `04/01/2026.
+  Sin duda no era el final que esperaba, no era el final que queria y no era el contexto en el que esperaba que todo esto
+  sucediera, Sin duda alguna si alguna vez vuelves a leer esto quiero que entiendas un par de cosas:
+
+  1- No entiendo porque me hiciste sentir amado si todo era falso, eso fue cruel
+  2- No se porque nunca hablaste conmigo y solo te fuiste dejandome con todo el amor que tenia en las manos
+  3- Realmente deseaba crear un futuro contigo y muchas veces me hablaste con lo que creo fue amor, pero ya no estoy seguro.
+
+  Sea como sea, te deseo lo mejor de la vida porque pese a que me hayas roto el corazon, no tengo forma de odiarte. Me fuera 
+  gustado ser yo, pero supongo que siempre fue otro a quien no superaste, no mendigare tu cariño y te deseo que en algun momento
+  seas feliz con quien realmente deseas estar, Te deseo las mejores de las suertes y que la vida te llene de felicidad
+
+  Adios, Mi niña <3
+
+  The End.`
+        }
         ];
     }
 
@@ -1337,6 +1355,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.initLibroGalaxy = initLibroGalaxy;
 console.log("🔮 Libro Galaxia listo para inicializar");
+
 
 
 
