@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #020208;
+            font-family: 'Georgia', serif;
+        }
+
+        #canvas-universo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .mensaje-centro {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: #ffffff;
+            font-size: 2rem;
+            letter-spacing: 4px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+                         0 0 20px rgba(255, 255, 255, 0.4),
+                         0 0 30px rgba(138, 43, 226, 0.3);
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.9;
+            animation: respiracion 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes respiracion {
+            0% {
+                opacity: 0.7;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(186, 85, 211, 0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas-universo"></canvas>
+    <h1 class="mensaje-centro">Aqui alguna vez existio un Universo</h1>
+
+    <script>
+        const canvas = document.getElementById('canvas-universo');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Configuración de estrellas
+        const NUM_ESTRELLAS = 1200;
+        const estrellas = [];
+
+        for (let i = 0; i < NUM_ESTRELLAS; i++) {
+            estrellas.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                size: Math.random() * 1.5,
+                alpha: Math.random(),
+                speedAlpha: 0.005 + Math.random() * 0.015,
+                vx: (Math.random() - 0.5) * 0.15,
+                vy: (Math.random() - 0.5) * 0.15
+            });
+        }
+
+        // Estrellas fugaces
+        const estrellasFugaces = [];
+
+        function crearEstrellaFugaz() {
+            if (Math.random() < 0.02) { // Probabilidad de aparición por frame
+                estrellasFugaces.push({
+                    x: Math.random() * width,
+                    y: Math.random() * (height / 2),
+                    length: 80 + Math.random() * 70,
+                    speed: 12 + Math.random() * 8,
+                    angle: Math.PI / 4 + (Math.random() - 0.5) * 0.2, // ~45 grados
+                    alpha: 1
+                });
+            }
+        }
+
+        function animar() {
+            // Fondo con rastro tenue
+            ctx.fillStyle = 'rgba(2, 2, 8, 0.3)';
+            ctx.fillRect(0, 0, width, height);
+
+            // Dibujar estrellas fijas/móviles
+            for (let i = 0; i < NUM_ESTRELLAS; i++) {
+                const e = estrellas[i];
+                
+                e.x += e.vx;
+                e.y += e.vy;
+
+                // Reubicación si salen de pantalla
+                if (e.x < 0) e.x = width;
+                if (e.x > width) e.x = 0;
+                if (e.y < 0) e.y = height;
+                if (e.y > height) e.y = 0;
+
+                // Parpadeo
+                e.alpha += e.speedAlpha;
+                if (e.alpha <= 0 || e.alpha >= 1) {
+                    e.speedAlpha = -e.speedAlpha;
+                }
+
+                ctx.beginPath();
+                ctx.arc(e.x, e.y, e.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(e.alpha)})`;
+                ctx.fill();
+            }
+
+            // Crear y dibujar estrellas fugaces
+            crearEstrellaFugaz();
+
+            for (let i = estrellasFugaces.length - 1; i >= 0; i--) {
+                const ef = estrellasFugaces[i];
+
+                const endX = ef.x - Math.cos(ef.angle) * ef.length;
+                const endY = ef.y - Math.sin(ef.angle) * ef.length;
+
+                const gradiente = ctx.createLinearGradient(ef.x, ef.y, endX, endY);
+                gradiente.addColorStop(0, `rgba(255, 255, 255, ${ef.alpha})`);
+                gradiente.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+                ctx.beginPath();
+                ctx.moveTo(ef.x, ef.y);
+                ctx.lineTo(endX, endY);
+                ctx.strokeStyle = gradiente;
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+
+                ef.x += Math.cos(ef.angle) * ef.speed;
+                ef.y += Math.sin(ef.angle) * ef.speed;
+                ef.alpha -= 0.015;
+
+                if (ef.alpha <= 0 || ef.x > width || ef.y > height) {
+                    estrellasFugaces.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(animar);
+        }
+
+        animar();
+    </script>
+</body>
+</html>
